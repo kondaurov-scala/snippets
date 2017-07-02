@@ -2,12 +2,7 @@ package com.github.kondaurovdev.snippets
 
 import scala.collection.mutable
 
-trait CommonHelper {
-
-  def ccToMap[T <: Product](cc: T): Map[String, Any] = {
-    val values = cc.productIterator
-    cc.getClass.getDeclaredFields.take(cc.productArity).map(f => f.getName -> values.next()).toMap
-  }
+trait iArgsHelper {
 
   def parseArgs(args: Iterable[String]): Seq[(String, Option[String])] = {
 
@@ -27,4 +22,4 @@ trait CommonHelper {
 
 }
 
-private object CommonHelper extends CommonHelper
+class ArgsHelper extends iArgsHelper

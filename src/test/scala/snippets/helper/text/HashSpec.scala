@@ -1,11 +1,11 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.{Hash, SymbolCase}
+import com.github.kondaurovdev.snippets.text.{HashHelper, LetterCaseHelper}
 import org.specs2.mutable.Specification
 
 class HashSpec extends Specification {
 
-  val hash = new Hash {}
+  val hash = new HashHelper {}
 
   "Hash" should {
 

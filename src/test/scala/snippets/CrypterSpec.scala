@@ -7,12 +7,12 @@ class CrypterSpec extends Specification {
 
   "Crypter" should {
 
-    val crypter = Crypter("passwd")
+    val crypter = new Crypter("passwd")
 
     "decrypt" in {
 
       "case 1" in {
-        crypter.right.flatMap(_.decrypt("bVkPlx7E0OjhCWFyIHzM5Q==")) must beRight("asd")
+        crypter.decrypt("bVkPlx7E0OjhCWFyIHzM5Q==") must beRight("asd")
       }
 
     }
@@ -20,7 +20,7 @@ class CrypterSpec extends Specification {
     "encrypt" in {
 
       "case 1" in {
-        crypter.right.flatMap(_.encrypt("asd")) must beRight("bVkPlx7E0OjhCWFyIHzM5Q==")
+        crypter.encrypt("asd") must beRight("bVkPlx7E0OjhCWFyIHzM5Q==")
       }
 
     }

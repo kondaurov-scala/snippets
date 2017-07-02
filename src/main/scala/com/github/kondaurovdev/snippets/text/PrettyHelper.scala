@@ -1,8 +1,8 @@
 package com.github.kondaurovdev.snippets.text
 
-trait Pretty {
+trait iPrettyHelper {
 
-  def clearStr(str: String): String = {
+  def clearBad(str: String): String = {
 
     val spacesRegex = """\s{2,}"""
     val controlSymsRegex = """(\n|\r)""".r
@@ -20,4 +20,4 @@ trait Pretty {
 
 }
 
-object Pretty extends Pretty
+class PrettyHelper extends iPrettyHelper

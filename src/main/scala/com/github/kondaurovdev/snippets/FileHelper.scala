@@ -4,7 +4,9 @@ import java.io._
 
 import scala.io.Source
 
-trait FileHelper extends TryHelper {
+trait iFileHelper {
+
+  def tryHelper: iTryHelper
 
   def listFiles(dir: String): List[String] = {
 
@@ -28,7 +30,7 @@ trait FileHelper extends TryHelper {
 
   def fileExists(path: String): Boolean = {
 
-    tryBlock({
+    tryHelper.tryBlock({
       new File(path).exists()
     }).fold(
       _ => false,
@@ -39,7 +41,7 @@ trait FileHelper extends TryHelper {
 
   def readFile(file: String, enc: String = "UTF-8"): Either[String, String] = {
 
-    tryBlock({
+    tryHelper.tryBlock({
       if (file.startsWith("http")) {
         Source.fromURL(file, enc).mkString
       } else {
@@ -50,7 +52,7 @@ trait FileHelper extends TryHelper {
   }
 
   def createDir(path: String): Either[String, String] = {
-    tryBlock({
+    tryHelper.tryBlock({
       new File(path).mkdirs()
       "Dir has been created"
     }, s"Can't create dir: $path")
@@ -58,4 +60,8 @@ trait FileHelper extends TryHelper {
 
 }
 
-private object FileHelper extends FileHelper
+class FileHelper extends iFileHelper {
+
+  lazy val tryHelper = new TryHelper()
+
+}

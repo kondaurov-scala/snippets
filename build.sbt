@@ -1,11 +1,11 @@
 lazy val snippets = (project in file("."))
   .settings(
+    scalaVersion := "2.12.2",
+    version := "1.0.0",
     organization := "com.github.kondaurovdev",
-    scalaVersion := "2.11.8",
-    version := "1.0.0-SNAPSHOT",
     libraryDependencies ++= Seq(
       "commons-codec" % "commons-codec" % "1.10",
-      "org.specs2" %% "specs2-core" % "3.8.5" % "test"
+      "org.specs2" %% "specs2-core" % "3.9.1" % "test"
     ),
     publishTo := {
       if (isSnapshot.value) {
@@ -22,11 +22,10 @@ lazy val snippets = (project in file("."))
       Credentials(Path.userHome / ".ivy2" / ".sonatype")
     ),
     publishMavenStyle := true,
-    licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
     pomExtra :=
       <url>https://github.com/kondaurov-scala/snippets</url>
         <scm>
-          <url>git@github.com:kondaurov-scala/snippets.git</url>re
+          <url>git@github.com:kondaurov-scala/snippets.git</url>
           <connection>scm:git:git@github.com:kondaurov-scala/snippets.git</connection>
         </scm>
         <developers>

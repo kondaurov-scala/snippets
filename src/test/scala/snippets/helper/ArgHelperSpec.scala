@@ -1,27 +1,14 @@
 package snippets.helper
 
-import com.github.kondaurovdev.snippets.CommonHelper
+import com.github.kondaurovdev.snippets.{ArgsHelper, iArgsHelper}
 import org.specs2.mutable.Specification
 import snippets.fake.Offer
 
-class CommonHelperSpec extends Specification {
+class ArgHelperSpec extends Specification {
 
-  val helper = new CommonHelper {}
+  val helper = new ArgsHelper
 
-  "CommonHelper" should {
-
-    "ccToMap" in {
-
-      "case 1" in {
-
-        helper.ccToMap(Offer("asd", 5)) must beEqualTo(Map(
-          "model" -> "asd",
-          "count" -> 5
-        ))
-
-      }
-
-    }
+  "ArgHelper" should {
 
     "parseArgs" in {
 

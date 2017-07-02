@@ -1,6 +1,6 @@
 package com.github.kondaurovdev.snippets.text
 
-trait Hash {
+trait iHashHelper {
 
   def getMd5(s: String): String = {
     val m = java.security.MessageDigest.getInstance("MD5")
@@ -13,4 +13,4 @@ trait Hash {
 
 }
 
-object Hash extends Hash
+class HashHelper extends iHashHelper

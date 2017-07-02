@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/kondaurov-scala/snippets.svg?branch=master)](https://travis-ci.org/kondaurov-json/json_generic)
-[![Coverage Status](https://coveralls.io/repos/github/kondaurov-scala/snippets/badge.svg?branch=master)](https://coveralls.io/github/kondaurov-json/json_generic?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/kondaurov-scala/snippets/badge.svg?ref=master)](https://coveralls.io/github/kondaurov-json/json_generic?branch=master)
 
 ## Motivation
 
@@ -8,4 +8,4 @@ It's not a library but syntax sugar.
 
 I really like Either type and i'm trying to use it everywhere
 
-I think that any function should return Either[Throwable, R]
+I think that any function () => V should be like that () => Either[Throwable, V]

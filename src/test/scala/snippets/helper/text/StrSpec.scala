@@ -1,11 +1,11 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.{Pretty, SymbolCase}
+import com.github.kondaurovdev.snippets.text.{PrettyHelper, LetterCaseHelper}
 import org.specs2.mutable.Specification
 
-class PrettySpec extends Specification {
+class StrSpec extends Specification {
 
-  val pretty = new Pretty {}
+  val pretty = new PrettyHelper {}
 
   "Pretty" should {
 
@@ -13,7 +13,7 @@ class PrettySpec extends Specification {
 
       "case 1" in {
 
-        pretty.clearStr("\r\nBla \r\n equal\n\r1") must beEqualTo("Bla equal 1")
+        pretty.clearBad("\r\nBla \r\n equal\n\r1") must beEqualTo("Bla equal 1")
 
       }
 

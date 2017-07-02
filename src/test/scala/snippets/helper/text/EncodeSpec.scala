@@ -1,11 +1,11 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.Encode
+import com.github.kondaurovdev.snippets.text.EncodeHelper
 import org.specs2.mutable.Specification
 
 class EncodeSpec extends Specification {
 
-  val encode = new Encode {}
+  val encode = new EncodeHelper {}
 
   "Encode" should {
 

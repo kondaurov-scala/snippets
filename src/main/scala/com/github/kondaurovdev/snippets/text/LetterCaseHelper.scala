@@ -2,7 +2,7 @@ package com.github.kondaurovdev.snippets.text
 
 import scala.collection.mutable.ListBuffer
 
-trait SymbolCase {
+trait iLetterCaseHelper {
 
   def cameCaseToSnakeCase(s: String): String = {
 
@@ -38,4 +38,4 @@ trait SymbolCase {
 
 }
 
-object SymbolCase extends SymbolCase
+class LetterCaseHelper extends iLetterCaseHelper
