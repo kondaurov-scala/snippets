@@ -15,7 +15,8 @@ lazy val snippets = (project in file("."))
       }
     },
     bintrayRepository := "maven",
-    publishArtifact in (Compile, packageDoc) := false,
+    publishArtifact in (Compile, packageDoc) := !isSnapshot.value,
+    publishArtifact in (Test, packageDoc) := false,
     bintrayReleaseOnPublish := !isSnapshot.value,
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
     credentials ++= Seq(
@@ -25,8 +26,9 @@ lazy val snippets = (project in file("."))
     pomExtra :=
       <url>https://github.com/kondaurov-scala/snippets</url>
         <scm>
-          <url>git@github.com:kondaurov-scala/snippets.git</url>
-          <connection>scm:git:git@github.com:kondaurov-scala/snippets.git</connection>
+          <url>https://github.com/kondaurov-scala/snippets.git</url>
+          <connection>https://github.com/kondaurov-scala/snippets.git</connection>
+          <tag>1.0.0</tag>
         </scm>
         <developers>
           <developer>
