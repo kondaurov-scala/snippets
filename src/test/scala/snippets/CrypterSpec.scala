@@ -1,13 +1,14 @@
 package snippets
 
-import com.github.kondaurovdev.snippets.crypt.Crypter
 import org.specs2.mutable.Specification
+
+import snippets.Snippets.Crypt
 
 class CrypterSpec extends Specification {
 
   "Crypter" should {
 
-    val crypter = new Crypter("passwd")
+    val crypter = Crypt.Crypter
 
     "decrypt" in {
 

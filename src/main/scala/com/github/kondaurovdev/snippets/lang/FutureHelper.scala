@@ -1,15 +1,16 @@
 package com.github.kondaurovdev.snippets.lang
 
-import com.github.kondaurovdev.snippets.{TryHelper, iTryHelper}
+import com.github.kondaurovdev.snippets.iface.TryHelperIface
+import com.github.kondaurovdev.snippets.iface.lang.FutureHelperIface
 
 import scala.concurrent.duration._
-import scala.concurrent.{Await, ExecutionContext, Future => ScalaFuture}
+import scala.concurrent.{Await, Future => ScalaFuture}
 
-trait iFutureHelper {
+trait iFutureHelperImpl extends FutureHelperIface {
 
-  def tryHelper: iTryHelper
+  def tryHelper: TryHelperIface
 
-  def waitFuture[F](f: ScalaFuture[F], sec: Int = 1)(implicit ec: ExecutionContext): Either[String, F] = {
+  def waitFuture[F](f: ScalaFuture[F], sec: Int = 1): Either[String, F] = {
     tryHelper.tryBlock({
       Await.result(f, sec.seconds)
     }, "can't get result of future")
@@ -17,6 +18,6 @@ trait iFutureHelper {
 
 }
 
-class FutureHelper extends iFutureHelper {
-  val tryHelper = new TryHelper()
-}
+class FutureHelper(
+                  val tryHelper: TryHelperIface
+                  ) extends iFutureHelperImpl

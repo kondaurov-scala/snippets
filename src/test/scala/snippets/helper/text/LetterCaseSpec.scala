@@ -1,11 +1,12 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.LetterCaseHelper
 import org.specs2.mutable.Specification
+
+import snippets.Snippets
 
 class LetterCaseSpec extends Specification {
 
-  val symbolCase = new LetterCaseHelper {}
+  val symbolCase = Snippets.Text.LetterCase
 
   "SymbolCase" should {
 

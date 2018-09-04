@@ -1,8 +1,10 @@
 package com.github.kondaurovdev.snippets
 
+import com.github.kondaurovdev.snippets.iface.ArgsHelperIface
+
 import scala.collection.mutable
 
-trait iArgsHelper {
+trait iArgsHelperImpl extends ArgsHelperIface {
 
   def parseArgs(args: Iterable[String]): Seq[(String, Option[String])] = {
 
@@ -22,4 +24,4 @@ trait iArgsHelper {
 
 }
 
-class ArgsHelper extends iArgsHelper
+class ArgsHelper() extends iArgsHelperImpl

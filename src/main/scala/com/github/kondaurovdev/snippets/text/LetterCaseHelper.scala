@@ -1,8 +1,10 @@
 package com.github.kondaurovdev.snippets.text
 
+import com.github.kondaurovdev.snippets.iface.text.LetterCaseIface
+
 import scala.collection.mutable.ListBuffer
 
-trait iLetterCaseHelper {
+trait iLetterCaseHelperImpl extends LetterCaseIface {
 
   def cameCaseToSnakeCase(s: String): String = {
 
@@ -38,4 +40,4 @@ trait iLetterCaseHelper {
 
 }
 
-class LetterCaseHelper extends iLetterCaseHelper
+class LetterCaseHelper extends iLetterCaseHelperImpl

@@ -1,6 +1,8 @@
 package com.github.kondaurovdev.snippets.text
 
-trait iPrettyHelper {
+import com.github.kondaurovdev.snippets.iface.text.PrettyHelperIface
+
+trait iPrettyHelperImpl extends PrettyHelperIface {
 
   def clearBad(str: String): String = {
 
@@ -20,4 +22,4 @@ trait iPrettyHelper {
 
 }
 
-class PrettyHelper extends iPrettyHelper
+class PrettyHelper extends iPrettyHelperImpl

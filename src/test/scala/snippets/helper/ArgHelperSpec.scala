@@ -1,12 +1,12 @@
 package snippets.helper
 
-import com.github.kondaurovdev.snippets.{ArgsHelper, iArgsHelper}
 import org.specs2.mutable.Specification
-import snippets.fake.Offer
+
+import snippets.Snippets
 
 class ArgHelperSpec extends Specification {
 
-  val helper = new ArgsHelper
+  val helper = Snippets.Args
 
   "ArgHelper" should {
 

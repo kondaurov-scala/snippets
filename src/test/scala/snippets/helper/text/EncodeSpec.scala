@@ -1,22 +1,23 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.EncodeHelper
 import org.specs2.mutable.Specification
+
+import snippets.Snippets
 
 class EncodeSpec extends Specification {
 
-  val encode = new EncodeHelper {}
+  val encoder = Snippets.Text.Encode
 
   "Encode" should {
 
     "getBase64" in {
 
       "case 1" in {
-        encode.getBase64FromString("alex") must beEqualTo("YWxleA==")
+        encoder.getBase64FromString("alex") must beEqualTo("YWxleA==")
       }
 
       "case 2" in {
-        encode.getBase64FromString("утф8") must beEqualTo("0YPRgtGEOA==")
+        encoder.getBase64FromString("утф8") must beEqualTo("0YPRgtGEOA==")
       }
 
     }
@@ -24,11 +25,11 @@ class EncodeSpec extends Specification {
     "getFromBase64" in {
 
       "case 1" in {
-        encode.decodeBase64ToString("YWxleA==") must beRight("alex")
+        encoder.decodeBase64ToString("YWxleA==") must beRight("alex")
       }
 
       "case 2" in {
-        encode.decodeBase64ToString("0YPRgtGEOA==") must beRight("утф8")
+        encoder.decodeBase64ToString("0YPRgtGEOA==") must beRight("утф8")
       }
 
     }

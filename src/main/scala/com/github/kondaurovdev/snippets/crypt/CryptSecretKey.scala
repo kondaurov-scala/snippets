@@ -4,11 +4,12 @@ import java.security.MessageDigest
 import java.util
 import javax.crypto.spec.SecretKeySpec
 
-import com.github.kondaurovdev.snippets.{TryHelper, iTryHelper}
+import com.github.kondaurovdev.snippets.iface.TryHelperIface
+import com.github.kondaurovdev.snippets.iface.crypt.CryptSecretKeyIface
 
-trait iCryptHelper {
+trait iCryptSecretKeyImpl extends CryptSecretKeyIface {
 
-  def tryHelper: iTryHelper
+  def tryHelper: TryHelperIface
 
   def getSecretKey(myKey: String): Either[String, SecretKeySpec] = {
     tryHelper.tryBlock({
@@ -22,8 +23,6 @@ trait iCryptHelper {
 
 }
 
-class CryptHelper extends iCryptHelper {
-
-  lazy val tryHelper = new TryHelper
-
-}
+class CryptSecretKey(
+                     val tryHelper: TryHelperIface
+                     ) extends iCryptSecretKeyImpl

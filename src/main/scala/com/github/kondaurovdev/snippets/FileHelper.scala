@@ -2,11 +2,13 @@ package com.github.kondaurovdev.snippets
 
 import java.io._
 
+import com.github.kondaurovdev.snippets.iface.{FileHelperIface, TryHelperIface}
+
 import scala.io.Source
 
-trait iFileHelper {
+trait iFileHelperImpl extends FileHelperIface {
 
-  def tryHelper: iTryHelper
+  def tryHelper: TryHelperIface
 
   def listFiles(dir: String): List[String] = {
 
@@ -32,7 +34,7 @@ trait iFileHelper {
 
     tryHelper.tryBlock({
       new File(path).exists()
-    }).fold(
+    }, "").fold(
       _ => false,
       res => res
     )
@@ -60,8 +62,6 @@ trait iFileHelper {
 
 }
 
-class FileHelper extends iFileHelper {
-
-  lazy val tryHelper = new TryHelper()
-
-}
+class FileHelper(
+                val tryHelper: TryHelperIface
+                ) extends iFileHelperImpl

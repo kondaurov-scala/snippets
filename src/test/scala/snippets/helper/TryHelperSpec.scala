@@ -1,11 +1,12 @@
 package snippets.helper
 
-import com.github.kondaurovdev.snippets.TryHelper
 import org.specs2.mutable.Specification
+
+import snippets.Snippets
 
 class TryHelperSpec extends Specification {
 
-  val helper = new TryHelper {}
+  val helper = Snippets.Try
 
   "TryHelper" should {
 

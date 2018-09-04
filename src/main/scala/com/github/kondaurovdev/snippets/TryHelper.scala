@@ -1,6 +1,8 @@
 package com.github.kondaurovdev.snippets
 
-trait iTryHelper {
+import com.github.kondaurovdev.snippets.iface.TryHelperIface
+
+trait iTryHelperImpl extends TryHelperIface {
 
   def tryToEither[R](block: => R): Either[Throwable, R] = {
     scala.util.Try(block).toEither
@@ -16,4 +18,8 @@ trait iTryHelper {
 
 }
 
-class TryHelper extends iTryHelper
+object TryHelper {
+  def apply(): TryHelper = new TryHelper()
+}
+
+class TryHelper extends iTryHelperImpl

@@ -1,11 +1,13 @@
 package snippets.helper.text
 
-import com.github.kondaurovdev.snippets.text.{PrettyHelper, LetterCaseHelper}
+import com.github.kondaurovdev.snippets.text.PrettyHelper
 import org.specs2.mutable.Specification
+
+import snippets.Snippets
 
 class StrSpec extends Specification {
 
-  val pretty = new PrettyHelper {}
+  val pretty = Snippets.Text.Pretty
 
   "Pretty" should {
 
